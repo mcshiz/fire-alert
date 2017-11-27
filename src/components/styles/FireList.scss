@@ -1,0 +1,21 @@
+.fire-list-ul {
+  li:nth-child(even) {
+    background: lightgray;
+  }
+  .header {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+    .fire-name {
+      font-size: 2em;
+      line-height: 25px;
+    }
+    .fire-last-updated {
+      font-size: 0.75em;
+    }
+  }
+  .property-summary {
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+}
