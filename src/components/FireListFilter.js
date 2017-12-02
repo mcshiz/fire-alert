@@ -11,12 +11,13 @@ class FireListFilter extends React.Component {
     onChangeFilter(text){
         this.props.filterList(text.toLowerCase())
     };
+
     render() {
 
         return (
-            <div className="col-xs-12 col-sm-8 col-md-offset-2">
+            <div className="col-xs-12">
                 <form action="">
-                    <input type="text" className="form-control" placeholder="Filter Fires By Name, Zip Code or State" onChange={(e)=>{this.onChangeFilter(e.target.value)}}/>
+                    <input type="text" className="form-control" placeholder="Filter Fires By Name, Zip Code or State" onChange={(e)=>{this.onChangeFilter(e.target.value)}} value={this.props.filter}/>
                 </form>
             </div>
         )

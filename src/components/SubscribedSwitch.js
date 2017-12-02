@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './styles/SubscribedSwitch.css'
+import '../styles/SubscribedSwitch.css'
 
 class SubscribedSwitch extends React.Component {
     constructor(props) {

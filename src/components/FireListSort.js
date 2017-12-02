@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/FireListSort.css'
+import '../styles/FireListSort.css'
 
 class FireListSort extends React.Component {
     constructor(props) {

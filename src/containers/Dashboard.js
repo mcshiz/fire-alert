@@ -3,20 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as DashboardActions from '../actions/dashboard';
 
-
 import FireList from './FireList.js'
-import YourStats from './YourStats.js'
-import FireListFilter from './FireListFilter.js'
-import FireListSort from './FireListSort'
-
-import Welcome from './Welcome.js'
-import DashboardMap from './DashboardMap.js'
+import YourStats from '../components/YourStats.js'
+import Welcome from '../components/Welcome.js'
+import DashboardMap from '../components/DashboardMap.js'
 
 class Dashboard extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -25,14 +17,7 @@ class Dashboard extends React.Component {
                 <Welcome user={this.props.user}/>
             </div>
             <div className="row">
-                <FireListFilter filterList={this.props.action.filterFireList}/>
-            </div>
-            <div className="row">
-                <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} />
-            </div>
-            <div className="row">
                 <div className="col-xs-12 col-md-6 col-lg-5 fireListColumn">
-                    <h2>Active Fires</h2>
                     <FireList {...this.props}  />
                 </div>
                 <div className="col-xs-12 col-md-6 col-lg-5 pull-right statsColumn">
@@ -40,7 +25,9 @@ class Dashboard extends React.Component {
                 </div>
             </div>
             <div className="row">
-                <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires}/>
+                <div className="col-xs-12 col-sm-10 col-sm-offset-1">
+                    <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires}/>
+                </div>
             </div>
         </div>
         )

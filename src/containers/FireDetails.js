@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as FireDetailsActions from '../actions/fire';
 
-import SubScribedSwitch from './SubscribedSwitch'
-import DashboardMap from './DashboardMap'
-class Fire extends React.Component {
-    constructor(props) {
-        super(props)
-        console.log(props.match.params.id)
-    }
+import SubScribedSwitch from '../components/SubscribedSwitch'
+import FireDescription from '../components/FireDescription';
+import DashboardMap from '../components/DashboardMap'
+
+class FireDetails extends React.Component {
+
     render() {
         return (
             <div>
@@ -22,12 +21,13 @@ class Fire extends React.Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-xs-12">
-                        <h3>Boles Fire</h3>
+                    <div className="col-xs-12 col-sm-6 col-sm-push-6">
+                        <FireDescription fireInformation={this.props.fireInformation}/>
                     </div>
-                </div>
-                <div className="row">
-                    <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires}/>
+                    <div className="col-xs-12 col-sm-6 col-sm-pull-6">
+                        <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires}/>
+                    </div>
+
                 </div>
             </div>
         )
@@ -38,7 +38,8 @@ function mapStateToProps(state, prop) {
     return {
         subscribed: state.fire.subscribed,
         mapOptions: state.fire.mapOptions,
-        activeFires: state.dashboard.activeFires
+        activeFires: state.dashboard.activeFires,
+        fireInformation: state.dashboard.activeFires[0]
     }
 }
 
@@ -50,4 +51,4 @@ function mapDispatchToProps(dispatch){
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Fire)
+export default connect(mapStateToProps, mapDispatchToProps)(FireDetails)

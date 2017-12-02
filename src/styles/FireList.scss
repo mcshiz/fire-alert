@@ -1,4 +1,7 @@
 .fire-list-ul {
+  .list-group {
+    padding-left: auto;
+  }
   li:nth-child(even) {
     background: lightgray;
   }

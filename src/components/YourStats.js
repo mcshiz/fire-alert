@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/YourStats.css'
+import '../styles/YourStats.css'
 import moment from '../../node_modules/moment';
 import accounting from '../../node_modules/accounting'
 class YourStats extends React.Component {

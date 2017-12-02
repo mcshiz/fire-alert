@@ -22,3 +22,6 @@ yarn-error.log*
 
 #dont want compiled css
 src/**/*.css
+
+#osx things
+/.idea
