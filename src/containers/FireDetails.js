@@ -22,10 +22,10 @@ class FireDetails extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-12 col-sm-6 col-sm-push-6">
-                        <FireDescription fireInformation={this.props.fireInformation}/>
+                        <FireDescription fireInformation={this.props.selectedFire}/>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-sm-pull-6">
-                        <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires}  {...this.props}/>
+                        <DashboardMap options={this.props.mapOptions} fires={[this.props.selectedFire]}  {...this.props}/>
                     </div>
 
                 </div>
@@ -40,7 +40,7 @@ function mapStateToProps(state, props) {
         subscribed: state.fire.subscribed,
         mapOptions: state.fire.mapOptions,
         activeFires: state.dashboard.activeFires,
-        fireInformation: state.dashboard.activeFires[props.match.params.id - 1]
+        selectedFire: state.dashboard.activeFires[props.match.params.id - 1]
     }
 }
 
