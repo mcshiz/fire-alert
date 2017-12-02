@@ -31,14 +31,14 @@ class ListItems extends React.Component {
                     <span className="col-xs-12 col-xs-4 text-danger text-right">$10,864,128</span>
                 </div>
                 <div className="row">
-                        <span className="col-xs-6">
-                            <Link to={{pathname: link}}>
-                                <button className="btn-xs btn-primary pull-left">View Details</button>
-                            </Link>
-                        </span>
+                    <span className="col-xs-6">
+                        <Link to={{pathname: link}}>
+                            <button className="btn-xs btn-primary pull-left">View Details</button>
+                        </Link>
+                    </span>
                     <span className="col-xs-6">
                             <button className="btn-xs btn-warning pull-right">Unsubscribe</button>
-                        </span>
+                    </span>
                 </div>
             </li>
         )

@@ -6,13 +6,26 @@ import '../styles/DashboardMap.css'
 
 
 class DashboardMap extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
 
+
+    handleClick(fireId) {
+        let link = '/fire-details/'+fireId;
+        this.props.history.push(link);
+    }
     renderFireMarkers = (fire, idx) => {
         let fireLatLng = [fire.lat, fire.lng];
         return (
             <Marker position={fireLatLng} key={idx}>
                 <Popup>
-                    <span><b>{fire.name}</b></span>
+                    <div>
+                        <span><b>{fire.name}</b></span>
+                        <br/>
+                        <button className="btn btn-xs btn-primary" onClick={()=> {this.handleClick(fire.id)} }>View Details</button>
+                    </div>
                 </Popup>
             </Marker>
         )

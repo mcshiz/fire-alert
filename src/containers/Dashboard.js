@@ -14,7 +14,9 @@ class Dashboard extends React.Component {
         return (
         <div>
             <div className="row">
-                <Welcome user={this.props.user}/>
+                <div className="col-xs-12 welcomeBanner">
+                    <Welcome user={this.props.user} />
+                </div>
             </div>
             <div className="row">
                 <div className="col-xs-12 col-md-6 col-lg-5 fireListColumn">
@@ -26,7 +28,7 @@ class Dashboard extends React.Component {
             </div>
             <div className="row">
                 <div className="col-xs-12 col-sm-10 col-sm-offset-1">
-                    <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires}/>
+                    <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires} {...this.props} />
                 </div>
             </div>
         </div>
