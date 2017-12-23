@@ -6,7 +6,6 @@ import Store from './store'
 
 import { BrowserRouter } from '../node_modules/react-router-dom'
 
-import './index.css';
 import 'jquery/src/jquery'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
