@@ -26,3 +26,6 @@ src/**/*.css
 
 #osx things
 /.idea
+
+#ignore the env file
+/server/config.env
