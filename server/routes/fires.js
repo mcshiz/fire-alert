@@ -6,14 +6,14 @@ const {Pool, Client} = require('pg');
 const pool = new Pool();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    pool.query("SELECT * FROM FIRES WHERE containment < 100", (err, result) => {
+    pool.query("SELECT * FROM fires", (err, result) => {
         if(err) {
             res.json({
                 error: err,
             })
+        } else {
+            res.json(result.rows);
         }
-        res.json(result.rows);
-        pool.end()
     })
 });
 router.get('/:id', function(req, res, next) {
@@ -26,9 +26,9 @@ router.get('/:id', function(req, res, next) {
             console.log(err)
         }
         if(result.rows) {
+            console.log(result.rows[0])
             res.json(result.rows[0])
         }
-        pool.end()
     });
 
 
