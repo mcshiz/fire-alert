@@ -23,7 +23,7 @@ class FireDetails extends React.Component {
             return (
                 <div>
                     <div className="row">
-                        <div className="col-xs-10 text-left">
+                        <div className="col-xs-10 text-left last-updated-date">
                             Last Updated: {ParseISODate(this.props.selectedFire.scrape_date)}
                         </div>
                         <div className="col-xs-2 text-right">

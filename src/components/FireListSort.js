@@ -20,8 +20,8 @@ class FireListSort extends React.Component {
     render() {
 
         return (
-            <div className="col-xs-12 col-sm-8 col-md-offset-2 sort-by-options">
-                <span>Sort By:
+            <div className="col-xs-12 text-right sort-by-options">
+                <div>Sort By:
                     <select name="sortBy" id="sortBy" className="form-control form-inline input-sm" onChange={(e)=>{this.handleSortByChange(e.target.value)}}>
                         <option value="lastUpdated">Most Recent</option>
                         <option value="name">Name</option>
@@ -32,7 +32,7 @@ class FireListSort extends React.Component {
                         <option value="desc">Descending</option>
                         <option value="asc">Ascending</option>
                     </select>
-                </span>
+                </div>
             </div>
         )
     }

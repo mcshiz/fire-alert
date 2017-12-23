@@ -58,8 +58,10 @@ input:checked + .slider:before {
 }
 .subscribed-switch-label {
   height: 26px;
-  line-height: 0px;
+  line-height: 26px;
   vertical-align: middle;
   display: inline-block;
   margin-right: 5px;
+  position: absolute;
+  left: 60px;
 }
