@@ -12,7 +12,8 @@ class FireDescription extends React.Component {
             "lon",
             "irwin_id",
             "geom",
-            "type"
+            "type",
+            "name"
         ];
         for(let key in fire) {
             i++;

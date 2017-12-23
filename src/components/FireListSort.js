@@ -21,7 +21,7 @@ class FireListSort extends React.Component {
 
         return (
             <div className="col-xs-12 text-right sort-by-options">
-                <div>Sort By:
+                <div className="sort-by-container">Sort By:
                     <select name="sortBy" id="sortBy" className="form-control form-inline input-sm" onChange={(e)=>{this.handleSortByChange(e.target.value)}}>
                         <option value="lastUpdated">Most Recent</option>
                         <option value="name">Name</option>

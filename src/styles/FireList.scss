@@ -4,10 +4,14 @@
   }
   li:nth-child(even) {
     background: lightgray;
+    .header {
+      border-bottom: 1px solid darkgray;
+    }
   }
   .header {
     border-bottom: 1px solid lightgray;
     margin-bottom: 5px;
+    padding-bottom: 5px;
     .fire-name {
       font-size: 2em;
       line-height: 25px;
