@@ -17,7 +17,7 @@ class DashboardMap extends React.Component {
         this.props.history.push(link);
     }
     renderFireMarkers = (fire, idx) => {
-        let fireLatLng = [fire.lat, fire.lng];
+        let fireLatLng = [parseFloat(fire.lat), parseFloat(fire.lon)];
         return (
             <Marker position={fireLatLng} key={idx}>
                 <Popup>
@@ -33,7 +33,13 @@ class DashboardMap extends React.Component {
 
 
     render() {
-        const position = [this.props.options.lat, this.props.options.lng];
+
+        let position;
+        if(typeof this.props.options.lat !== 'undefined' && typeof this.props.options.lon !== 'undefined') {
+            position = [this.props.options.lat, this.props.options.lon];
+        } else {
+           position = [parseFloat(this.props.fires[0].lat), parseFloat(this.props.fires[0].lon)]
+        }
         let markers = this.props.fires.map(this.renderFireMarkers);
 
         return (

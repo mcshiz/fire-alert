@@ -6,6 +6,7 @@ import '../styles/FireList.css'
 import FireListItems from '../components/FireListItems.js';
 import FireListFilter from '../components/FireListFilter.js'
 import FireListSort from '../components/FireListSort'
+import LoadingSpinner from "../components/LoadingSpinner";
 
 
 class FireList extends React.Component {
@@ -40,10 +41,12 @@ class FireList extends React.Component {
         });
         return (
             <div>
-                <h2>Active Fires</h2>
+                <h2 className='text-center'>Active Fires</h2>
                 <FireListFilter filterList={this.props.action.filterFireList} filter={this.props.filter} />
                 <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} />
-                <FireListItems fires={filteredAndSorted} />
+                {
+                    this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted} />
+                }
             </div>
         )
     };

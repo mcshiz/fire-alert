@@ -8,8 +8,11 @@ import YourStats from '../components/YourStats.js'
 import Welcome from '../components/Welcome.js'
 import DashboardMap from '../components/DashboardMap.js'
 
-class Dashboard extends React.Component {
 
+class Dashboard extends React.Component {
+    componentDidMount(){
+        this.props.action.loadActiveFiresList();
+    }
     render() {
         return (
         <div>
@@ -19,12 +22,12 @@ class Dashboard extends React.Component {
                 </div>
             </div>
             <div className="row">
-                <div className="col-xs-12 col-md-6 col-lg-5 fireListColumn">
+                <div className="col-xs-12  fireListColumn">
                     <FireList {...this.props}  />
                 </div>
-                <div className="col-xs-12 col-md-6 col-lg-5 pull-right statsColumn">
-                    <YourStats />
-                </div>
+                {/*<div className="col-xs-12 col-md-6 col-lg-5 pull-right statsColumn">*/}
+                    {/*<YourStats />*/}
+                {/*</div>*/}
             </div>
             <div className="row">
                 <div className="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -43,7 +46,8 @@ function mapStateToProps(state, prop) {
         filter: state.dashboard.filter,
         sortBy: state.dashboard.sortBy,
         sortOrder: state.dashboard.sortOrder,
-        user: state.dashboard.user
+        user: state.dashboard.user,
+        loading: state.dashboard.loading
     }
 }
 

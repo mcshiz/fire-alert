@@ -1,6 +1,6 @@
 import React from 'react'
-import moment from '../../node_modules/moment/moment'
 import { Link } from 'react-router-dom'
+import { ParseISODate } from "../utilities/helpers";
 
 class ListItems extends React.Component {
 
@@ -10,7 +10,7 @@ class ListItems extends React.Component {
     }
 
     createListItems = (fire, idx) => {
-        let timeStamp = moment(fire.lastUpdated).format('M/D/YYYY h:mm:s A');
+        let timeStamp = ParseISODate(fire.scrape_date);
         let link = '/fire-details/'+fire.id;
         return (
             <li className="list-group-item col-xs-12" key={idx}>
@@ -45,7 +45,13 @@ class ListItems extends React.Component {
     };
 
     render() {
-        let listItems = this.props.fires.map(this.createListItems);
+        let listItems;
+        if(!this.props.fires.length) {
+            listItems = <li className="list-group-item text-center">No active fires</li>
+        } else {
+            listItems = this.props.fires.map(this.createListItems);
+        }
+
         return (
             <ul className="list-group col-xs-12 fire-list-ul">
                 {listItems}
