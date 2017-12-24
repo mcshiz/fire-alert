@@ -1,5 +1,5 @@
 import moment from "moment/moment";
-import { ConvertRegion, TO_ABBREVIATED, TO_NAME } from "./stateAbbrev"
+import { ConvertRegion, TO_NAME } from "./stateAbbrev"
 export const ParseISODate = (str) => {
     let date = moment(str);
     let dateComponent = date.utc().format('MM/DD/YYYY');

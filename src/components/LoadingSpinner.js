@@ -5,9 +5,9 @@ class LoadingSpinner extends React.Component {
 
     render(){
         return (
-            <li className='list-group-item col-xs-12 loading-spinner-list-item text-center'>
+            <div className='col-xs-12 loading-spinner-list-item text-center'>
                 <PulseLoader color="#f3501f" size="20px" margin="4px"/>
-            </li>
+            </div>
         )
 
     }

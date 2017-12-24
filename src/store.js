@@ -20,7 +20,11 @@ const initialState = {
     fire: {
         fire:[],
         loading: true,
-        subscribed: true,
+        subscribed: false,
+        twitter: {
+            tweets: [],
+            loading: true
+        },
         mapOptions: {
             zoom: 10,
             scrollEnabled: false,

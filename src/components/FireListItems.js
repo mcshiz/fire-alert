@@ -27,11 +27,11 @@ class ListItems extends React.Component {
                 <div className="row property-summary">
                     <span className="col-xs-4 col-lg-2">
                         <h4>Acres</h4>
-                        {parseInt(fire.acres).toLocaleString()}
+                        {parseInt(fire.acres, 10).toLocaleString()}
                     </span>
                     <span className="col-xs-4 col-lg-2">
                         <h4>Containment</h4>
-                        {parseInt(fire.containment) || 0}
+                        {parseInt(fire.containment, 10) || 0}
                     </span>
                     <span className="col-xs-4 col-lg-2">
                         <h4>Days Active</h4>

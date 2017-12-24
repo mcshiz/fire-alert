@@ -5,16 +5,30 @@ export default (state = [], payload) =>  {
                 subscribed: payload.subscribed
             });
         case 'LOAD_FIRE_DETAILS':
-            console.log(payload.data)
             return Object.assign({}, state, {
                 loading: false,
                 fire: payload.data
 
             });
         case 'LOAD_FIRE_DETAILS_FAILURE':
-            console.log(payload.err)
             return Object.assign({}, state, {
                 error: payload.err
+            });
+        case 'LOAD_FIRE_TWEETS':
+            return Object.assign({}, state, {
+                twitter:{
+                    loading: false,
+                    tweets: payload.data.statuses
+                }
+            });
+        case 'LOAD_FIRE_TWEETS_FAILURE':
+            return Object.assign({}, state, {
+                twitter: {
+                    loading: false,
+                    tweets: [],
+                    error: payload.err
+                }
+
             });
         default:
             return state

@@ -8,9 +8,11 @@ import FireDescription from '../components/FireDescription';
 import DashboardMap from '../components/DashboardMap'
 import LoadingSpinner from "../components/LoadingSpinner";
 import { ParseISODate } from '../utilities/helpers'
+import TwitterFeed from "../components/TwitterFeed";
 
 class FireDetails extends React.Component {
     componentDidMount(){
+        //get fire details then get tweets
         this.props.action.loadFireDetails(this.props.match.params.id)
     }
 
@@ -38,7 +40,11 @@ class FireDetails extends React.Component {
                         <div className="col-xs-12 col-sm-6 col-sm-pull-6">
                             <DashboardMap options={this.props.mapOptions} fires={[this.props.selectedFire]}  {...this.props}/>
                         </div>
-
+                    </div>
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-6 col-lg-4 tweets-container">
+                            {this.props.selectedFire.hashtag ? <TwitterFeed hashtag={this.props.selectedFire.hashtag} {...this.props}/> : <span>No Twitter Hashtag Yet</span>}
+                        </div>
                     </div>
                 </div>
             )
@@ -52,7 +58,8 @@ function mapStateToProps(state, props) {
         subscribed: state.fire.subscribed,
         mapOptions: state.fire.mapOptions,
         selectedFire: state.fire.fire,
-        loading: state.fire.loading
+        loading: state.fire.loading,
+        twitter: state.fire.twitter,
     }
 }
 

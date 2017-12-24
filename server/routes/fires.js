@@ -26,7 +26,6 @@ router.get('/:id', function(req, res, next) {
             console.log(err)
         }
         if(result.rows) {
-            console.log(result.rows[0])
             res.json(result.rows[0])
         }
     });
