@@ -6,7 +6,7 @@ add this to the servers package json <br />
      "start": "PORT=3001 nodemon ./bin/www"
    }`
 
-### Setting env variables for pg package  <br />
+### Setting env variables for use with process.env.<i>BLAH</i>
 Use the `dotenv` package <br />
 Create server root level .env file <br />
 `require('dotenv').config({path: '/custom/path/to/your/env/vars'})` <br />
