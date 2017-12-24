@@ -24,7 +24,7 @@ class TwitterFeed extends React.Component {
         let tweets = [];
         if(!this.props.twitter.tweets) {
             return (
-                <span>No Tweets found</span>
+                <h4>No Tweets found</h4>
             )
         }
         for(let i = 0 ; i < this.props.twitter.tweets.length; i++) {
