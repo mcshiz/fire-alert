@@ -5,21 +5,21 @@ import LoadingSpinner from "./LoadingSpinner";
 class TwitterFeed extends React.Component {
     constructor(props) {
         super(props);
+        this.state =  {
+            searchTerm: ""
+        }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         if(this.props.hashtag) {
             // if HT doesn't contain 'fire' add it
             // if HT contains '#' remove it otherwise urls get confused
             let hashtag = this.props.hashtag.toLowerCase().indexOf('fire') < 0 ? this.props.hashtag + "fire" : this.props.hashtag;
             let searchTerm = hashtag.indexOf('#') < 0 ? hashtag : hashtag.replace('#', '');
+            this.setState({searchTerm: searchTerm});
             this.props.action.loadFireTweets(searchTerm)
         }
     }
-    componentDidMount() {
-        console.log(this.props)
-    }
-
     renderTweets() {
         let tweets = [];
         if(!this.props.twitter.tweets) {
@@ -36,8 +36,10 @@ class TwitterFeed extends React.Component {
     render() {
         return (
             <div>
-                <h4>{this.props.hashtag}</h4>
-                { this.props.twitter.loading ? <LoadingSpinner/> : this.renderTweets() }
+                <h4 className="text-center">#{this.state.searchTerm} on Twitter</h4>
+                <div className="tweets-container">
+                    { this.props.twitter.loading ? <LoadingSpinner/> : this.renderTweets() }
+                </div>
             </div>
 
         )

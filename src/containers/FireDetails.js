@@ -42,7 +42,7 @@ class FireDetails extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-xs-12 col-sm-6 col-lg-4 tweets-container">
+                        <div className="col-xs-12 col-sm-6 col-lg-4 twitter-widget">
                             {this.props.selectedFire.hashtag ? <TwitterFeed hashtag={this.props.selectedFire.hashtag} {...this.props}/> : <span>No Twitter Hashtag Yet</span>}
                         </div>
                     </div>
