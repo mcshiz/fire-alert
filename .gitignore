@@ -25,7 +25,6 @@ yarn-error.log*
 src/**/*.css
 
 #osx things
-/.idea
-
+.idea/
 #ignore the env file
 /server/config.env

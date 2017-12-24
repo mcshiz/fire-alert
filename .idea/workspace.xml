@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5b9f76b-3601-4816-bd26-5dfcff7997bf" name="Default" comment="change fire details list display attributes">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/styles/tweets.scss" />
+    <list default="true" id="b5b9f76b-3601-4816-bd26-5dfcff7997bf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/TwitterFeed.js" afterPath="$PROJECT_DIR$/src/components/TwitterFeed.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/FireDetails.js" afterPath="$PROJECT_DIR$/src/containers/FireDetails.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +21,8 @@
       <file leaf-file-name="FireDetails.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/FireDetails.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            <state relative-caret-position="322">
+              <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -32,7 +30,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tweets.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tweets.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles/tweets.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -47,16 +55,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
               <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -95,9 +93,11 @@
       <file leaf-file-name="TwitterFeed.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/TwitterFeed.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-373">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="178">
+              <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -181,7 +181,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/server/package.json" />
         <option value="$PROJECT_DIR$/server/routes/users.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/node_modules/halogen/PulseLoader.js" />
         <option value="$PROJECT_DIR$/src/styles/DashboardMap.scss" />
@@ -215,9 +214,10 @@
         <option value="$PROJECT_DIR$/src/actions/fire.js" />
         <option value="$PROJECT_DIR$/server/routes/twitter.js" />
         <option value="$PROJECT_DIR$/src/styles/tweets.css" />
-        <option value="$PROJECT_DIR$/src/containers/FireDetails.js" />
-        <option value="$PROJECT_DIR$/src/components/TwitterFeed.js" />
         <option value="$PROJECT_DIR$/src/styles/tweets.scss" />
+        <option value="$PROJECT_DIR$/src/components/TwitterFeed.js" />
+        <option value="$PROJECT_DIR$/src/containers/FireDetails.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -319,7 +319,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file:///Users/brianmccall/fire-alert/server/app.js&#10;stor&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;Load&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/LoadingSpinner.js&#10;he&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/utilities/helpers.js&#10;firelis&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/styles/FireList.scss&#10;st&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;s&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;store&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;sto&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;wel&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Welcome.js&#10;rea&#9;FILE&#9;file:///Users/brianmccall/fire-alert/node_modules/react-router-dom/README.md&#10;pac&#9;FILE&#9;file:///Users/brianmccall/fire-alert/package.json&#10;F&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Fire.js&#10;f&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Fire.js&#10;D&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Dashboard.js&#10;Das&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/DashboardMap.js&#10;Fire&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Fire.js&#10;we&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Welcome.js&#10;ind&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/index.js&#10;A&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;Ma&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Main.js&#10;Ho&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Home.js&#10;pack&#9;FILE&#9;file:///Users/brianmccall/fire-alert/package.json&#10;App&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;Sto&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;St&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;das&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/dashboard.js&#10;da&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/dashboard.js&#10;in&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/index.js&#10;a&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;Ap&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;map&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;m&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;M&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;ma&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;ap&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;y&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/YourStats.js&#10;fire&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/styles/FireList.scss&#10;Fil&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/FireListFilter.js" />
+    <property name="SearchEverywhereHistoryKey" value=".git&#9;FILE&#9;file:///Users/brianmccall/fire-alert/.gitignore&#10;app&#9;FILE&#9;file:///Users/brianmccall/fire-alert/server/app.js&#10;stor&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;Load&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/LoadingSpinner.js&#10;he&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/utilities/helpers.js&#10;firelis&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/styles/FireList.scss&#10;st&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;s&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;store&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;sto&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;wel&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Welcome.js&#10;rea&#9;FILE&#9;file:///Users/brianmccall/fire-alert/node_modules/react-router-dom/README.md&#10;pac&#9;FILE&#9;file:///Users/brianmccall/fire-alert/package.json&#10;F&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Fire.js&#10;f&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Fire.js&#10;D&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Dashboard.js&#10;Das&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/DashboardMap.js&#10;Fire&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Fire.js&#10;we&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Welcome.js&#10;ind&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/index.js&#10;A&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;Ma&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Main.js&#10;Ho&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Home.js&#10;pack&#9;FILE&#9;file:///Users/brianmccall/fire-alert/package.json&#10;App&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;Sto&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;St&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/store.js&#10;das&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/dashboard.js&#10;da&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/dashboard.js&#10;in&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/reducers/index.js&#10;a&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;Ap&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;map&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;m&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;M&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;ma&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/Map.js&#10;ap&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/App.js&#10;y&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/YourStats.js&#10;fire&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/styles/FireList.scss&#10;Fil&#9;FILE&#9;file:///Users/brianmccall/fire-alert/src/components/FireListFilter.js" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="HTML" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
@@ -438,7 +438,7 @@
       <updated>1511561206077</updated>
       <workItem from="1511561209116" duration="60151000" />
       <workItem from="1513975237912" duration="4376000" />
-      <workItem from="1513998312113" duration="50123000" />
+      <workItem from="1513998312113" duration="50390000" />
     </task>
     <task id="LOCAL-00001" summary="add express backend">
       <created>1513997302093</created>
@@ -503,15 +503,28 @@
       <option name="project" value="LOCAL" />
       <updated>1514139158340</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="styling of twitter component">
+      <created>1514140291929</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1514140291929</updated>
+    </task>
+    <task id="LOCAL-00011" summary="styling of twitter component errors">
+      <created>1514140509190</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1514140509190</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114650000" />
+    <option name="totallyTimeSpent" value="114917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="727" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SFDX" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -520,7 +533,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33386075" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33386075" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15726767" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -573,7 +586,9 @@
     <MESSAGE value="style fixes" />
     <MESSAGE value="change fire details list display attributes" />
     <MESSAGE value="added twitter widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="added twitter widget" />
+    <MESSAGE value="styling of twitter component" />
+    <MESSAGE value="styling of twitter component errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="styling of twitter component errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -582,14 +597,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="30" column="18" lean-forward="false" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -984,28 +991,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TwitterFeed.js">
+    <entry file="file://$PROJECT_DIR$/src/styles/tweets.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-373">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/FireDetails.js">
+    <entry file="file://$PROJECT_DIR$/src/components/TwitterFeed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        <state relative-caret-position="178">
+          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/tweets.scss">
+    <entry file="file://$PROJECT_DIR$/src/containers/FireDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="322">
+          <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
           <folding />
         </state>
       </provider>
