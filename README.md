@@ -13,6 +13,6 @@ Create server root level .env file <br />
 variables now accessible under process.env.VARIABLE  
 
 ### Remove files / directories from GIT remote but keep local
-`git rm [-r] --cached [file | folder]`
-`git commit -m "message"`
+`git rm [-r] --cached [file | folder]`<br />
+`git commit -m "message"`<br />
 `git push origin <branch>`
