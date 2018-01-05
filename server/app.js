@@ -10,6 +10,7 @@ require('dotenv').config({path: './config.env'});
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var recipients = require('./routes/recipients');
 var fires = require('./routes/fires');
 var twitter = require('./routes/twitter');
 var authRoute = require('./routes/auth.js');
@@ -35,6 +36,7 @@ app.use(passport.initialize());
 // app.use('/', index);
 app.use('/', authRoute);
 app.use('/users', users);
+app.use('/recipients', recipients);
 app.use('/fires', fires);
 app.use('/twitter', twitter);
 
