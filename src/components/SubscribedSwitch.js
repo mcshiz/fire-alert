@@ -14,7 +14,7 @@ class SubscribedSwitch extends React.Component {
     };
     render() {
         return (
-            <div>
+            <div className="subscribed-switch-container text-right">
                 <span className="subscribed-switch-label">Subscribed</span>
                 <label className="switch">
                     <input type="checkbox"  checked={this.props.subscribed} onChange={()=> this.handleSubscribedChange()} />

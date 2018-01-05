@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as AuthActions from '../actions/auth';
+import NavAuth from "../components/NavAuth";
 
 class NavBar extends React.Component {
+
     render() {
         return (
             <nav className="navbar navbar-default">
@@ -22,10 +27,7 @@ class NavBar extends React.Component {
                                 <li><Link to="/dashboard">Dashboard</Link></li>
                                 <li><Link to="/notifications">Notifications</Link></li>
                             </ul>
-                            <ul className="nav navbar-nav navbar-right">
-                                <li><Link to="/profile">Profile</Link></li>
-                                <li><Link to="/">Logout</Link></li>
-                            </ul>
+                            <NavAuth loggedIn={this.props.loggedIn} user={this.props.user} logout={this.props.action.logout}/>
                         </div>
                     </div>
                 </div>
@@ -34,4 +36,20 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar
+function mapStateToProps(state, props) {
+
+    return {
+        loggedIn: state.auth.loggedIn,
+        user: state.auth.user
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        action: bindActionCreators(AuthActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+
+

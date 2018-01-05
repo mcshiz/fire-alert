@@ -4,9 +4,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import Store from './store'
 
-import { BrowserRouter } from '../node_modules/react-router-dom'
+import { Router } from 'react-router-dom'
+import history from './history'
 
-import 'jquery/src/jquery'
+import {$, jQuery} from 'jquery/src/jquery'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
@@ -19,9 +20,9 @@ const StoreInstance = Store();
 
 ReactDOM.render(
     <Provider store={StoreInstance} >
-        <BrowserRouter>
+        <Router history={history}>
             <App />
-        </BrowserRouter>
+        </Router>
     </Provider>
         , document.getElementById('root'));
 registerServiceWorker();

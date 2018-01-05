@@ -1,5 +1,6 @@
 import moment from "moment/moment";
 import { ConvertRegion, TO_NAME } from "./stateAbbrev"
+
 export const ParseISODate = (str) => {
     let date = moment(str);
     let dateComponent = date.utc().format('MM/DD/YYYY');
@@ -25,3 +26,15 @@ export const ToTitleCase = (str) => {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
+export const HandleErrors = (response) => {
+    if(!response.ok) {
+        response.json()
+            .then(err => {
+                if(err.message) {
+                    alert(err.message)
+                }
+            })
+
+    }
+    return response
+};

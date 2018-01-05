@@ -16,19 +16,17 @@ class FireDetails extends React.Component {
         this.props.action.loadFireDetails(this.props.match.params.id)
     }
 
-
-
     render() {
         if (this.props.loading) {
             return <LoadingSpinner />
         } else {
             return (
-                <div>
+                <div className="col-xs-12 col-md-10 col-md-offset-1">
                     <div className="row">
-                        <div className="col-xs-10 text-left last-updated-date">
+                        <div className="col-xs-12 col-sm-6 text-left last-updated-date">
                             Last Updated: {ParseISODate(this.props.selectedFire.scrape_date)}
                         </div>
-                        <div className="col-xs-2 text-right">
+                        <div className="col-xs-12 col-sm-6">
                             <SubScribedSwitch subscribed={this.props.subscribed}
                                               changeSubscribed={this.props.action.changeSubscribed}/>
                         </div>
@@ -38,12 +36,17 @@ class FireDetails extends React.Component {
                             <FireDescription fireInformation={this.props.selectedFire}/>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-sm-pull-6">
-                            <DashboardMap options={this.props.mapOptions} fires={[this.props.selectedFire]}  {...this.props}/>
+                            <DashboardMap options={this.props.mapOptions} fires={[this.props.selectedFire]} {...this.props}/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-xs-12 col-sm-6 col-lg-4 twitter-widget">
-                            {this.props.selectedFire.hashtag ? <TwitterFeed hashtag={this.props.selectedFire.hashtag} {...this.props}/> : <h4 className='text-center'>No Twitter Hashtag Yet</h4>}
+                            {
+                                this.props.selectedFire.hashtag ?
+                                <TwitterFeed hashtag={this.props.selectedFire.hashtag} {...this.props}/>
+                                :
+                                <h4 className='text-center'>No Twitter Hashtag Yet</h4>
+                            }
                         </div>
                     </div>
                 </div>
@@ -55,11 +58,11 @@ class FireDetails extends React.Component {
 function mapStateToProps(state, props) {
 
     return {
-        subscribed: state.fire.subscribed,
-        mapOptions: state.fire.mapOptions,
-        selectedFire: state.fire.fire,
-        loading: state.fire.loading,
-        twitter: state.fire.twitter,
+        subscribed: state.fireDetails.subscribed,
+        mapOptions: state.fireDetails.mapOptions,
+        selectedFire: state.fireDetails.fire,
+        loading: state.fireDetails.loading,
+        twitter: state.fireDetails.twitter,
     }
 }
 

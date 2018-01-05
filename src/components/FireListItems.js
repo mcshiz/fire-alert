@@ -41,10 +41,6 @@ class ListItems extends React.Component {
                         <h4>Area</h4>
                         {fire.location_description}
                     </span>
-                    {/*<span className="col-xs-12 col-sm-8 ">3 Properties within 10 miles</span>*/}
-                    {/*<span className="col-xs-12 col-xs-4 text-danger text-right">$1,254,988</span>*/}
-                    {/*<span className="col-xs-12 col-xs-8">1 Property within predicted fire path</span>*/}
-                    {/*<span className="col-xs-12 col-xs-4 text-danger text-right">$10,864,128</span>*/}
                 </div>
                 <div className="row">
                     <span className="col-xs-6">

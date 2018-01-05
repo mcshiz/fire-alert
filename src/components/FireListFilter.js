@@ -17,7 +17,9 @@ class FireListFilter extends React.Component {
         return (
             <div className="col-xs-12">
                 <form action="">
-                    <input type="text" className="form-control" placeholder="Filter Fires By Name, Zip Code or State" onChange={(e)=>{this.onChangeFilter(e.target.value)}} value={this.props.filter}/>
+                    <input type="text" className="form-control" placeholder="Filter Fires By Name, Zip Code or State"
+                           onChange={(e)=>{this.onChangeFilter(e.target.value)}}
+                           value={this.props.filter}/>
                 </form>
             </div>
         )

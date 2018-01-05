@@ -1,29 +1,39 @@
-/**
- * Created by brianmccall on 11/24/17.
- */
 import React from 'react';
 import '../styles/FireList.css'
 import FireListItems from '../components/FireListItems.js';
 import FireListFilter from '../components/FireListFilter.js'
 import FireListSort from '../components/FireListSort'
+
 import LoadingSpinner from "../components/LoadingSpinner";
+import * as FireListActions from "../actions/fireList";
+import {connect} from "react-redux";
+import { bindActionCreators } from 'redux';
 
 
 class FireList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.filterFires = this.filterFires.bind(this);
+        this.sortFires = this.sortFires.bind(this);
+    }
 
-    render() {
-        let that = this;
-        let sortBy = that.props.sortBy;
-        let sortOrder = that.props.sortOrder;
-
-        let filteredListItems = this.props.activeFires.filter( (fire) => {
-            if(fire.name.toLowerCase().includes(that.props.filter) || fire.location.toLowerCase().includes(that.props.filter)) {
+    filterFires = (fires) => {
+        let filter = this.props.filter;
+        return fires.filter( (fire) => {
+            // set some defaults because not all properties are always included
+            let name = fire.name || '';
+            let state = fire.state || '';
+            let postal_code = fire.postal_code || '';
+            if(name.toLowerCase().includes(filter) || state.toLowerCase().includes(filter) || postal_code.includes(filter) ) {
                 return fire
             }
             return false;
         });
-
-        let filteredAndSorted = filteredListItems.sort( (a, b) => {
+    };
+    sortFires = (filteredListItems) => {
+        let sortBy = this.props.sortBy;
+        let sortOrder = this.props.sortOrder;
+        return filteredListItems.sort( (a, b) => {
             let nameA=a[sortBy], nameB=b[sortBy];
             if(sortOrder === "asc") {
                 if (nameA < nameB)
@@ -39,17 +49,36 @@ class FireList extends React.Component {
                 return 0;
             }
         });
+    };
+    render() {
+        let filteredAndSorted = this.sortFires(this.filterFires(this.props.fires));
         return (
-            <div>
-                <h2 className='text-center'>Active Fires</h2>
-                <FireListFilter filterList={this.props.action.filterFireList} filter={this.props.filter} />
-                <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} />
-                {
-                    this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted} />
-                }
+            <div className="row">
+                <div className="col-xs-12 fireListColumn">
+                    <h2 className='text-center'>Active Fires</h2>
+                    <FireListFilter filterList={this.props.action.filterFireList} filter={this.props.filter} />
+                    <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} />
+                    { this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted}/> }
+                </div>
             </div>
         )
     };
 }
 
-export default FireList;
+function mapStateToProps(state, prop) {
+    return {
+        filter: state.fireList.filter,
+        sortBy: state.fireList.sortBy,
+        sortOrder: state.fireList.sortOrder,
+        fires: state.fireList.activeFires,
+        loading: state.fireList.loading
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        action: bindActionCreators(FireListActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FireList)
