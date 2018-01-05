@@ -1,23 +1,23 @@
 import history from '../history'
 const BASE_URL = 'http://localhost:3001/';
 
-function callApi(endpoint, authenticated) {
-
+function callApi(endpoint, authenticated, config={}) {
     let token = localStorage.getItem('id_token') || null;
-    let config = {};
-
     if(authenticated) {
         if(token) {
-            config = {
-                headers: { 'Authorization': `Bearer ${token}` }
+            if(config.headers) {
+                // TODO FIX THIS GHETTO CRAP
+                let myHeaders = new Headers(config.headers);
+                myHeaders.append('Authorization' , `Bearer ${token}` );
+                config.headers = myHeaders
+            } else {
+                config.headers = new Headers({ 'Authorization' : `Bearer ${token}` })
             }
         }
-        else {
+    } else {
             history.push('/');
             return Promise.reject("Unauthorized")
-        }
     }
-
     return fetch(endpoint, config)
         .then(res => res.json().then(data => ({ data, res })))
         .then(({data, res}) => {
@@ -43,12 +43,12 @@ export default store => next => action => {
         return next(action)
     }
 
-    let { endpoint, types, authenticated } = callAPI;
+    let { endpoint, types, authenticated, config } = callAPI;
 
     const [ requestType, successType, errorType ] = types;
 
     // Passing the authenticated boolean back in our data will let us distinguish between normal and secret quotes
-    return callApi(endpoint, authenticated).then(
+    return callApi(endpoint, authenticated, config).then(
         response =>
             next({
                 response,
