@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var User = sequelize.define('User', {
+    var Recipient = sequelize.define('Recipient', {
         first_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        username: {
+        phone_number: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -20,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
                 isEmail: true
             }
         },
-        password: DataTypes.STRING,
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         status: DataTypes.BOOLEAN,
         last_login: DataTypes.DATE
     }, {
@@ -31,8 +34,15 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    User.associate = function (models) {
-        User.hasMany(models.Recipient);
+    Recipient.associate = function (models) {
+        // Using additional options like CASCADE etc for demonstration
+        // Can also simply do Task.belongsTo(models.User);
+        Recipient.belongsTo(models.User, {
+            onDelete: "CASCADE",
+            foreignKey: {
+                allowNull: false
+            }
+        });
     };
-    return User;
+    return Recipient;
 };
