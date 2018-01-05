@@ -82,8 +82,11 @@ module.exports = function(passport, user) {
 
                 }
                 let userinfo = user.get();
+                User.update({last_login: Date.now()}, {where: {id: userinfo.id}})
+                    .then(() => {
+                    return done(null, userinfo);
+                })
 
-                return done(null, userinfo);
 
 
             }).catch(function(err) {
