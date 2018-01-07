@@ -7,7 +7,7 @@ export const LOAD_ACTIVE_FIRES_FAILURE = 'LOAD_ACTIVE_FIRES_FAILURE';
 export const  loadActiveFiresList = () => {
     return {
         [CALL_API]: {
-            endpoint: 'fires',
+            endpoint: '/fires',
             authenticated: true,
             types: [LOAD_ACTIVE_FIRES_REQUEST, LOAD_ACTIVE_FIRES_SUCCESS, LOAD_ACTIVE_FIRES_FAILURE]
         }
