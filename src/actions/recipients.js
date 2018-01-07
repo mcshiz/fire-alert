@@ -7,7 +7,7 @@ export const LOAD_RECIPIENTS_FAILURE = 'LOAD_RECIPIENTS_FAILURE';
 export const loadRecipients = () => {
     return {
         [CALL_API]: {
-            endpoint: 'recipients',
+            endpoint: '/recipients',
             authenticated: true,
             types: [LOAD_RECIPIENTS_REQUEST, LOAD_RECIPIENTS_SUCCESS, LOAD_RECIPIENTS_FAILURE]
         }
@@ -17,7 +17,7 @@ export const loadRecipients = () => {
 export const addRecipient = (obj) => {
     return {
         [CALL_API]: {
-            endpoint: 'recipients',
+            endpoint: '/recipients',
             authenticated: true,
             config: {
                 method: 'post',
