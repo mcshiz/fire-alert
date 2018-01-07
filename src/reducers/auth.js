@@ -1,40 +1,61 @@
 export default (state = {
-        isFetching: false,
-        loggedIn: localStorage.getItem('id_token') ? true : false
+        isFetching: true,
+        authenticated: !!localStorage.getItem('id_token'),
     }, payload) =>  {
     switch (payload.type) {
         case 'REQUEST_LOGIN':
             return Object.assign({}, state, {
-                loggedIn: false,
-                isFetching: true
+                isFetching: true,
+                authenticated: false
             });
         case 'LOGIN_SUCCESS':
             return Object.assign({}, state, {
                 isFetching: false,
-                loggedIn: true,
+                authenticated: true,
                 token: payload.user.token,
                 errorMessage: ''
             });
         case 'LOGIN_FAILURE':
             return Object.assign({}, state, {
                 isFetching: false,
-                loggedIn: false,
+                authenticated: false,
                 errorMessage: payload.errorMessage
             });
+
+        case 'CHECK_LOGIN_REQUEST':
+            return Object.assign({}, state, {
+                isFetching: true
+            });
+        case 'CHECK_LOGIN_SUCCESS':
+            return Object.assign({}, state, {
+                isFetching: false,
+                authenticated: payload.response,
+            });
+        case 'CHECK_LOGIN_FAILURE':
+            return Object.assign({}, state, {
+                isFetching: false,
+                authenticated: false,
+                errorMessage: payload.errorMessage,
+            });
+
+
+
+
+
         case 'REQUEST_LOGOUT':
             return Object.assign({}, state, {
                 isFetching: true,
-                loggedIn: true
+                authenticated: true
             });
         case 'LOGOUT_SUCCESS':
             return Object.assign({}, state, {
                 isFetching: false,
-                loggedIn: false
+                authenticated: false
             });
         case 'SIGNUP_SUCCESS':
             return Object.assign({}, state, {
                 // isFetching: false,
-                // loggedIn: false
+                // authenticated: false
             });
         case 'SIGNUP_FAILURE':
             return Object.assign({}, state, {

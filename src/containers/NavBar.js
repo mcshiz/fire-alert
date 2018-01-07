@@ -27,7 +27,7 @@ class NavBar extends React.Component {
                                 <li><Link to="/dashboard">Dashboard</Link></li>
                                 <li><Link to="/notifications">Notifications</Link></li>
                             </ul>
-                            <NavAuth loggedIn={this.props.loggedIn} user={this.props.user} logout={this.props.action.logout}/>
+                            <NavAuth authenticated={this.props.authenticated} user={this.props.user} logout={this.props.action.logout}/>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ class NavBar extends React.Component {
 function mapStateToProps(state, props) {
 
     return {
-        loggedIn: state.auth.loggedIn,
+        authenticated: state.auth.authenticated,
         user: state.auth.user
     }
 }

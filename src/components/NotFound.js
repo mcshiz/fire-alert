@@ -8,7 +8,7 @@ class NotFound extends React.Component {
             <div className='text-center'>
             <h1>Page Not Found</h1>
             <span>
-                <a href="#" onClick={() => history.goBack()}>Go Back</a>
+                <button onClick={() => history.goBack()}>Go Back</button>
             </span>
             </div>
         )
