@@ -4,7 +4,6 @@ const passport = require('passport');
 const jwt = require('jwt-simple');
 
 router.post('/signup', function(req, res, next) {
-
     passport.authenticate('local-signup',function(err, user, info) {
         if(err) {
             return res.send(400, {...info})
@@ -43,5 +42,22 @@ router.post('/login', function(req, res, next) {
         });
     })(req, res, next);
 });
+
+
+router.get('/check-token', passport.authenticate('jwt', { session: false }),
+    function(req, res) {
+        if(req.user) {
+            res.send(true);
+        } else {
+            res.send(false);
+        }
+
+
+    }
+);
+
+
+
+
 
 module.exports = router;
