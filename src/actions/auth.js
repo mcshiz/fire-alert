@@ -1,4 +1,5 @@
 import history from '../history'
+import {CALL_API} from "../middlewares/auth";
 
 export const login = (loginObj) => {
     return dispatch => {
@@ -17,7 +18,6 @@ export const login = (loginObj) => {
                     user: user
                 });
                 history.push('/dashboard')
-
             } else {
                 dispatch({
                     type: 'LOGIN_FAILURE',
@@ -25,6 +25,16 @@ export const login = (loginObj) => {
                 })
             }
         });
+    }
+};
+
+export const  checkToken = () => {
+    return {
+        [CALL_API]: {
+            endpoint: '/check-token',
+            authenticated: true,
+            types: ['CHECK_LOGIN_REQUEST', 'CHECK_LOGIN_SUCCESS', 'CHECK_LOGIN_FAILURE']
+        }
     }
 };
 
