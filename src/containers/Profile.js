@@ -48,7 +48,7 @@ class Profile extends React.Component {
     render() {
         return (
             <div className="row">
-            <Welcome user={this.props.user.first_name} />
+            <Welcome name={this.props.user.first_name} />
             <AddRecipient submitForm={this.submitForm}/>
             </div>
         )
@@ -56,7 +56,6 @@ class Profile extends React.Component {
 }
 
 function mapStateToProps(state, prop) {
-    console.log(state)
     return {
         user: state.user.user,
         recipients: state.recipients.recipients
