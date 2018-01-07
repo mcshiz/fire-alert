@@ -5,7 +5,7 @@ class Welcome extends React.Component {
         return (
             <div className="row">
                 <div className="col-xs-12 welcomeBanner">
-                    <h1 className="text-center">Welcome {this.props.user}</h1>
+                    <h1 className="text-center">Welcome {this.props.name}</h1>
                 </div>
             </div>
         )
