@@ -1,5 +1,5 @@
 export default (state = {
-    loading: true,
+    isFetching: true,
     activeFires: [],
     sortBy: "lastUpdated",
     sortOrder: "Desc",
@@ -8,16 +8,16 @@ export default (state = {
     switch (payload.type) {
         case 'LOAD_ACTIVE_FIRES_REQUEST':
             return Object.assign({}, state, {
-                loading: true
+                isFetching: true
             });
         case 'LOAD_ACTIVE_FIRES_SUCCESS':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 activeFires: payload.response
             });
         case 'LOAD_ACTIVE_FIRES_FAILURE':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 error: payload.response
             });
         case 'FILTER':
@@ -32,6 +32,21 @@ export default (state = {
             return Object.assign({}, state, {
                 sortOrder: payload.order
             });
+        case 'EDIT_FIRE_REQUEST':
+            return Object.assign({}, state, {
+                isFetching: true
+            });
+        case 'EDIT_FIRE_SUCCESS':
+            return Object.assign({}, state, {
+                isFetching: false,
+                activeFires: payload.response
+            });
+        case 'EDIT_FIRE_FAILURE':
+            return Object.assign({}, state, {
+                isFetching: false,
+                error: payload.error
+            });
+
         default:
             return state
     }
