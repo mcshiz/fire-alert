@@ -11,7 +11,11 @@ router.get('/', passport.authenticate('jwt', { session: false }),
             models.Recipient.findAll({
                 where: {
                     UserId: user.id
-                }
+                },
+                order: [
+                    ['id', 'ASC'],
+                ],
+
             }).then((recipients) => {
                 res.json(recipients);
             });
@@ -19,25 +23,17 @@ router.get('/', passport.authenticate('jwt', { session: false }),
         } else {
             res.sendStatus(401);
         }
-
-
     }
 );
+
+
+
 router.post('/', passport.authenticate('jwt', { session: false }),
     function(req, res) {
         if(req.user) {
             let userId = req.user.id;
-
-            var userpassword = 'fuckkkkk';
-            var data = {
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                username: req.body.username,
-                email: req.body.email,
-                phone_number: 1234567890,
-                password: userpassword,
-                UserId: userId
-            };
+            let data = req.body;
+            data.UserId = userId;
             models.Recipient.create(data, function(newRecipient) {
                 if(!newRecipient) {
                     return done(null, false)
@@ -46,10 +42,19 @@ router.post('/', passport.authenticate('jwt', { session: false }),
                     return done(null, newRecipient)
                 }
             })
-            .then((newRecipient) => {
-                console.log(newRecipient);
-                res.json(newRecipient);
-            });
+                .then((newRecipient) => {
+                    models.Recipient.findAll({
+                        where: {
+                            UserId: userId
+                        },
+                        order: [
+                            ['id', 'ASC']
+                        ]
+                    }).then(recipients => {
+                        res.json(recipients);
+                    });
+
+                });
 
         } else {
             res.sendStatus(401);
@@ -58,5 +63,76 @@ router.post('/', passport.authenticate('jwt', { session: false }),
 
     }
 );
+
+
+router.put('/', passport.authenticate('jwt', { session: false }),
+    function(req, res) {
+        if(req.user) {
+            let userId = req.user.id;
+            let recipientId = req.body.id;
+            let data = req.body;
+
+            models.Recipient.update(data, {
+                where: {
+                    UserId: userId,
+                    id: recipientId
+                },
+                returning: true,
+                plain: true,
+            })
+            .then(record => {
+                models.Recipient.findAll({
+                    where: {
+                        UserId: userId
+                    },
+                    order: [
+                        ['id', 'ASC'],
+                    ],
+                }).then(result => {
+                    res.json(result)
+                })
+            });
+
+        } else {
+            res.sendStatus(401);
+        }
+    }
+);
+
+
+
+router.delete('/', passport.authenticate('jwt', { session: false }),
+    function(req, res) {
+        if(req.user) {
+            let userId = req.user.id;
+            let recipientId = req.body.id;
+
+            models.Recipient.destroy({
+                where: {
+                    UserId: userId,
+                    id: recipientId
+                },
+                returning: true,
+                plain: true,
+            })
+                .then(record => {
+                    models.Recipient.findAll({
+                        where: {
+                            UserId: userId
+                        },
+                        order: [
+                            ['id', 'ASC'],
+                        ],
+                    }).then(result => {
+                        res.json(result)
+                    })
+                });
+
+        } else {
+            res.sendStatus(401);
+        }
+    }
+);
+
 
 module.exports = router;

@@ -10,6 +10,8 @@ import Profile from './containers/Profile'
 import FireDetails from "./containers/FireDetails";
 import NotFound from './components/NotFound';
 
+import './styles/main.css'
+
 class App extends React.Component {
     constructor(props) {
         super(props);

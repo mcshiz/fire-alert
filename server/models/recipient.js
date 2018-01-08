@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         status: DataTypes.BOOLEAN,
         last_login: DataTypes.DATE
