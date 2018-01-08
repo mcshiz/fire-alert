@@ -8,12 +8,6 @@ export const LOAD_FIRE_TWEETS_REQUEST = 'LOAD_FIRE_TWEETS_REQUEST';
 export const LOAD_FIRE_TWEETS_SUCCESS = 'LOAD_FIRE_TWEETS_SUCCESS';
 export const LOAD_FIRE_TWEETS_FAILURE = 'LOAD_FIRE_TWEETS_FAILURE';
 
-export const changeSubscribed = (value) => {
-    return {
-        type: "TOGGLE_SUBSCRIBED",
-        subscribed: value
-    };
-};
 
 export const loadFireDetails = (id) => {
     return {
@@ -33,4 +27,20 @@ export const loadFireTweets = (hashtag) => {
             types: [LOAD_FIRE_TWEETS_REQUEST, LOAD_FIRE_TWEETS_SUCCESS, LOAD_FIRE_TWEETS_FAILURE]
         }
     };
+};
+
+
+export const toggleSubscribe = (fire) => {
+    return {
+        [CALL_API]: {
+            endpoint: `/fires/${fire.id}`,
+            authenticated: true,
+            config: {
+                method: 'put',
+                body: fire,
+                headers: {"Content-Type": "application/json"}
+            },
+            types: ['UPDATE_FIRE_REQUEST', 'UPDATE_FIRE_SUCCESS', 'UPDATE_FIRE_FAILURE']
+        }
+    }
 };
