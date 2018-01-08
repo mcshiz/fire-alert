@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import '../styles/RecipientList.css'
 
 class ListRecipients extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         let Recipients = this.props.recipients.map((recipient, idx) => (
