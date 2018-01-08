@@ -20,9 +20,10 @@ class Dashboard extends React.Component {
     }
     render() {
         return (
-            !this.props.isFetching &&
+            !this.props.auth.isFetching  &&
+            !this.props.user.isFetching  &&
             <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <Welcome name={this.props.user.first_name} />
+                <Welcome name={this.props.user.user.first_name} />
                 <FireList />
                 <DashboardMap options={this.props.mapOptions} fires={this.props.activeFires} {...this.props} />
             </div>
@@ -34,8 +35,8 @@ function mapStateToProps(state, prop) {
     return {
         mapOptions: state.dashboard.mapOptions,
         activeFires: state.fireList.activeFires,
-        user: state.user.user,
-        isFetching: state.auth.isFetching,
+        user: state.user,
+        auth: state.auth,
         authenticated: state.auth.authenticated,
     }
 }
