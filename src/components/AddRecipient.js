@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class AddRecipient extends React.Component {
     render() {
@@ -30,5 +31,8 @@ class AddRecipient extends React.Component {
             </form>
         )
     }
+}
+AddRecipient.propTypes = {
+    addRecipient: PropTypes.func.isRequired
 }
 export default AddRecipient

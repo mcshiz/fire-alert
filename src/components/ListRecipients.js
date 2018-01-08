@@ -1,5 +1,5 @@
 import React from 'react'
-import AddRecipient from "./AddRecipient";
+import PropTypes from 'prop-types'
 import '../styles/RecipientList.css'
 
 class ListRecipients extends React.Component {
@@ -29,22 +29,24 @@ class ListRecipients extends React.Component {
                             <option value={false}>Disabled</option>
                         </select>
                     </div>
-                    <div className="form-group pull-right">
-                        <button type='submit' disabled={true} className='btn btn-primary submit' ><i className='fa fa-save'></i></button>
+                    <div className="form-group">
+                        <button type='submit' disabled={true} className='btn btn-primary submit' ><i className='fa fa-check'></i></button>
                         <button type='button' className='btn btn-danger remove' onClick={this.props.deleteRecipient.bind(this, recipient)}><i className='fa fa-trash'></i></button>
                     </div>
                 </form>
             </li>
         ));
         return (
-            <div className="row">
-                <ul>
-                    {Recipients}
-                    <AddRecipient addRecipient={this.props.addRecipient}/>
-                </ul>
-            </div>
+            <span>
+            {Recipients}
+            </span>
         )
     }
 }
-
+ListRecipients.propTypes = {
+    recipients: PropTypes.array.isRequired,
+    deleteRecipient: PropTypes.func.isRequired,
+    editRecipient: PropTypes.func.isRequired,
+    applyEdits: PropTypes.func.isRequired
+}
 export default ListRecipients;
