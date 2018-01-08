@@ -13,11 +13,13 @@ import TwitterFeed from "../components/TwitterFeed";
 class FireDetails extends React.Component {
     componentDidMount(){
         //get fire details then get tweets
-        this.props.action.loadFireDetails(this.props.match.params.id)
+        if(this.props.match.params.hasOwnProperty('id')) {
+            this.props.action.loadFireDetails(this.props.match.params.id)
+        }
     }
 
     render() {
-        if (this.props.loading) {
+        if (this.props.isFetching) {
             return <LoadingSpinner />
         } else {
             return (
@@ -61,7 +63,7 @@ function mapStateToProps(state, props) {
         subscribed: state.fireDetails.subscribed,
         mapOptions: state.fireDetails.mapOptions,
         selectedFire: state.fireDetails.fire,
-        loading: state.fireDetails.loading,
+        isFetching: state.fireDetails.isFetching,
         twitter: state.fireDetails.twitter,
     }
 }

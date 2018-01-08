@@ -1,10 +1,10 @@
 export default (state = {
         fire:[],
-        loading: true,
+        isFetching: true,
         subscribed: false,
         twitter: {
             tweets: [],
-            loading: true
+            isFetching: true
         },
         mapOptions: {
             zoom: 10,
@@ -18,35 +18,35 @@ export default (state = {
             });
         case 'LOAD_FIRE_DETAILS_REQUEST':
             return Object.assign({}, state, {
-                loading: true,
+                isFetching: true,
             });
         case 'LOAD_FIRE_DETAILS_SUCCESS':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 fire: payload.response
             });
         case 'LOAD_FIRE_DETAILS_FAILURE':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 error: payload.err
             });
         case 'LOAD_FIRE_TWEETS_REQUEST':
             return Object.assign({}, state, {
                 twitter:{
-                    loading: true,
+                    isFetching: true,
                 }
             });
         case 'LOAD_FIRE_TWEETS_SUCCESS':
             return Object.assign({}, state, {
                 twitter:{
-                    loading: false,
+                    isFetching: false,
                     tweets: payload.response.statuses
                 }
             });
         case 'LOAD_FIRE_TWEETS_FAILURE':
             return Object.assign({}, state, {
                 twitter: {
-                    loading: false,
+                    isFetching: false,
                     tweets: [],
                     error: payload.err
                 }

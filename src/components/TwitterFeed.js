@@ -38,7 +38,7 @@ class TwitterFeed extends React.Component {
             <div>
                 <h4 className="text-center">#{this.state.searchTerm} on Twitter</h4>
                 <div className="tweets-container">
-                    { this.props.twitter.loading ? <LoadingSpinner/> : this.renderTweets() }
+                    { this.props.twitter.isFetching ? <LoadingSpinner/> : this.renderTweets() }
                 </div>
             </div>
 
