@@ -1,6 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { ParseISODate, ParseDaysSince, FormatCityStateZip } from "../utilities/helpers";
+import SubScribedSwitch from './SubscribedSwitch'
 
 class ListItems extends React.Component {
 
@@ -48,9 +50,8 @@ class ListItems extends React.Component {
                             <button className="btn-xs btn-primary pull-left">View Details</button>
                         </Link>
                     </span>
-                    <span className="col-xs-6">
-                            <button className="btn-xs btn-warning pull-right">Unsubscribe</button>
-                    </span>
+                    <SubScribedSwitch subscribed={fire.subscribed}
+                                      toggleSubscribe={this.props.toggleSubscribe.bind(this, fire)}/>
                 </div>
             </li>
         )
@@ -72,4 +73,7 @@ class ListItems extends React.Component {
     }
 }
 
+ListItems.propTypes = {
+    toggleSubscribe: PropTypes.func.isRequired
+}
 export default ListItems
