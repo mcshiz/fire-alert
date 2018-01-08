@@ -1,7 +1,6 @@
 export default (state = {
         fire:[],
         isFetching: true,
-        subscribed: false,
         twitter: {
             tweets: [],
             isFetching: true
@@ -12,10 +11,6 @@ export default (state = {
         },
 }, payload) =>  {
     switch (payload.type) {
-        case 'TOGGLE_SUBSCRIBED':
-            return Object.assign({}, state, {
-                subscribed: payload.subscribed
-            });
         case 'LOAD_FIRE_DETAILS_REQUEST':
             return Object.assign({}, state, {
                 isFetching: true,
@@ -29,6 +24,20 @@ export default (state = {
             return Object.assign({}, state, {
                 isFetching: false,
                 error: payload.err
+            });
+        case 'UPDATE_FIRE_REQUEST':
+            return Object.assign({}, state, {
+                isFetching: true
+            });
+        case 'UPDATE_FIRE_SUCCESS':
+            return Object.assign({}, state, {
+                fire: payload.response,
+                isFetching: false
+            });
+        case 'UPDATE_FIRE_FAILURE':
+            return Object.assign({}, state, {
+                isFetching: false,
+                error: payload.response
             });
         case 'LOAD_FIRE_TWEETS_REQUEST':
             return Object.assign({}, state, {
