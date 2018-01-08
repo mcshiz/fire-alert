@@ -18,21 +18,19 @@ export default (state = {
                 error: payload.response
             });
         case 'EDIT_RECIPIENT':
-        return {
-        ...state,
-            recipients: state.recipients.map(recipient => recipient.id === payload.id ?
-            // transform the one with a matching id
-            { ...recipient } :
-            // otherwise return original recipient
-            recipient
-        )
-        };
+            return Object.assign({}, state, {
+                recipients: state.recipients.map(recipient => recipient.id === payload.id ?
+                // transform the one with a matching id
+                { ...recipient } :
+                // otherwise return original recipient
+                recipient
+                )
+            });
         case 'UPDATE_RECIPIENT_REQUEST':
             return Object.assign({}, state, {
                 isFetching: true
             });
         case 'UPDATE_RECIPIENT_SUCCESS':
-            console.log(payload.response);
             return Object.assign({}, state, {
                 recipients: payload.response,
                 isFetching: false
@@ -47,7 +45,6 @@ export default (state = {
                 isFetching: true
             });
         case 'ADD_RECIPIENT_SUCCESS':
-            console.log(payload.response);
             return Object.assign({}, state, {
                 recipients: payload.response,
                 isFetching: false
