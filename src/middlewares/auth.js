@@ -1,4 +1,5 @@
 import history from '../history'
+import { logout } from '../actions/auth'
 const BASE_URL = 'http://localhost:3001/';
 
 function callApi(endpoint, authenticated, config={}) {
@@ -19,17 +20,16 @@ function callApi(endpoint, authenticated, config={}) {
             return Promise.reject("Unauthorized")
     }
     return fetch(endpoint, config)
-        .then(res => res.json().then(data => ({ data, res })))
-        .then(({data, res}) => {
-            if (!res.ok) {
-                return Promise.reject(res.message)
+        .then(response => response.text().then(data => ({ data, response })))
+        .then(({data, response}) => {
+            if (!response.ok) {
+                return Promise.reject(response)
             }
-            return data
+            return JSON.parse(data)
         })
-        .catch(err =>{
-            history.push('/');
-            return Promise.reject(err.message)
-            })
+        .catch(err => {
+            return Promise.reject(err)
+        })
 }
 
 export const CALL_API = Symbol('Call API');
@@ -49,15 +49,23 @@ export default store => next => action => {
 
     // Passing the authenticated boolean back in our data will let us distinguish between normal and secret quotes
     return callApi(endpoint, authenticated, config).then(
-        response =>
+        response => {
             next({
                 response,
                 authenticated,
                 type: successType
-            }),
-        error => next({
-            error: error.message || 'There was an error.',
-            type: errorType
-        })
+            })
+        },
+        error => {
+            if(error.status === 401) {
+                store.dispatch(logout())
+            }
+            next({
+                error: error || 'There was an error.',
+                type: errorType
+            })
+        }
+
+
     )
 }
