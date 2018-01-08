@@ -33,3 +33,19 @@ export const sortByFireList = (property) => {
         property: property
     };
 };
+
+
+export const toggleSubscribe = (fire) => {
+    return {
+        [CALL_API]: {
+            endpoint: '/fires',
+            authenticated: true,
+            config: {
+                method: 'put',
+                body: fire,
+                headers: {"Content-Type": "application/json"}
+            },
+            types: ['EDIT_FIRE_REQUEST', 'EDIT_FIRE_SUCCESS', 'EDIT_FIRE_FAILURE']
+        }
+    }
+};

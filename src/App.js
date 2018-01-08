@@ -13,10 +13,6 @@ import NotFound from './components/NotFound';
 import './styles/main.css'
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const authenticated = !!localStorage.getItem('id_token')
         const PrivateRoute = ({component: Component, ...rest}) => {
