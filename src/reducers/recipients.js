@@ -1,20 +1,20 @@
 export default (state = {
-    loading: true,
+    isFetching: true,
     recipients: []
 }, payload) =>  {
     switch (payload.type) {
         case 'LOAD_RECIPIENTS_REQUEST':
             return Object.assign({}, state, {
-                loading: true
+                isFetching: true
             });
         case 'LOAD_RECIPIENTS_SUCCESS':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 recipients: payload.response
             });
         case 'LOAD_RECIPIENTS_FAILURE':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 error: payload.response
             });
         case 'EDIT_RECIPIENT':
@@ -29,47 +29,47 @@ export default (state = {
         };
         case 'UPDATE_RECIPIENT_REQUEST':
             return Object.assign({}, state, {
-                loading: true
+                isFetching: true
             });
         case 'UPDATE_RECIPIENT_SUCCESS':
             console.log(payload.response);
             return Object.assign({}, state, {
                 recipients: payload.response,
-                loading: false
+                isFetching: false
             });
         case 'UPDATE_RECIPIENT_FAILURE':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 error: payload.response
             });
         case 'ADD_RECIPIENT_REQUEST':
             return Object.assign({}, state, {
-                loading: true
+                isFetching: true
             });
         case 'ADD_RECIPIENT_SUCCESS':
             console.log(payload.response);
             return Object.assign({}, state, {
                 recipients: payload.response,
-                loading: false
+                isFetching: false
             });
         case 'ADD_RECIPIENT_FAILURE':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 error: payload.response
             });
         case 'DELETE_RECIPIENT_REQUEST':
             return Object.assign({}, state, {
-                loading: true
+                isFetching: true
             });
         case 'DELETE_RECIPIENT_SUCCESS':
             console.log(payload.response);
             return Object.assign({}, state, {
                 recipients: payload.response,
-                loading: false
+                isFetching: false
             });
         case 'DELETE_RECIPIENT_FAILURE':
             return Object.assign({}, state, {
-                loading: false,
+                isFetching: false,
                 error: payload.response
             });
         default:
