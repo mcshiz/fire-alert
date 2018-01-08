@@ -15,8 +15,9 @@ class DashboardMap extends React.Component {
     }
     renderFireMarkers = (fire, idx) => {
         let fireLatLng = [parseFloat(fire.lat), parseFloat(fire.lon)];
+        let opacity = fire.subscribed ? 1 : 0.5;
         return (
-            <Marker position={fireLatLng} key={idx}>
+            <Marker position={fireLatLng} key={idx} opacity={opacity}>
                 <Popup>
                     <div>
                         <span><b>{fire.name}</b></span>
