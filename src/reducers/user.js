@@ -1,5 +1,6 @@
 export default (state = {
-    user: {}
+    user: {},
+    isFetching: true,
 }, payload) =>  {
     switch (payload.type) {
         case 'USER_REQUEST':
@@ -10,11 +11,10 @@ export default (state = {
             return Object.assign({}, state, {
                 isFetching: false,
                 user: payload.response,
-                authenticated: payload.authenticated || false
             });
         case 'USER_FAILURE':
             return Object.assign({}, state, {
-                isFetching: false
+                isFetching: false,
             });
         default:
             return state
