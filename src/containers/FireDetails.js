@@ -16,21 +16,25 @@ class FireDetails extends React.Component {
         if(this.props.match.params.hasOwnProperty('id')) {
             this.props.action.loadFireDetails(this.props.match.params.id)
         }
-    }
+        this.toggleSubscribe = this.toggleSubscribe.bind(this);
 
+    }
+    toggleSubscribe = () => {
+        let sub = !this.props.selectedFire.subscribed;
+        let fire = Object.assign(this.props.selectedFire, {subscribed: sub});
+        this.props.action.toggleSubscribe(JSON.stringify(fire))
+    };
     render() {
-        if (this.props.isFetching) {
-            return <LoadingSpinner />
-        } else {
             return (
+                this.props.isFetching ? <LoadingSpinner/> :
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
                     <div className="row">
                         <div className="col-xs-12 col-sm-6 text-left last-updated-date">
                             Last Updated: {ParseISODate(this.props.selectedFire.scrape_date)}
                         </div>
                         <div className="col-xs-12 col-sm-6">
-                            <SubScribedSwitch subscribed={this.props.subscribed}
-                                              changeSubscribed={this.props.action.changeSubscribed}/>
+                            <SubScribedSwitch subscribed={this.props.selectedFire.subscribed}
+                                              toggleSubscribe={this.toggleSubscribe}/>
                         </div>
                     </div>
                     <div className="row">
@@ -54,13 +58,10 @@ class FireDetails extends React.Component {
                 </div>
             )
         }
-    }
 }
 
 function mapStateToProps(state, props) {
-
     return {
-        subscribed: state.fireDetails.subscribed,
         mapOptions: state.fireDetails.mapOptions,
         selectedFire: state.fireDetails.fire,
         isFetching: state.fireDetails.isFetching,

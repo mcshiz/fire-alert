@@ -6,6 +6,7 @@ import FireListSort from '../components/FireListSort'
 
 import LoadingSpinner from "../components/LoadingSpinner";
 import * as FireListActions from "../actions/fireList";
+import * as FireActions from "../actions/fire";
 import {connect} from "react-redux";
 import { bindActionCreators } from 'redux';
 
@@ -15,6 +16,7 @@ class FireList extends React.Component {
         super(props);
         this.filterFires = this.filterFires.bind(this);
         this.sortFires = this.sortFires.bind(this);
+        this.toggleSubscribe = this.toggleSubscribe.bind(this);
     }
 
     filterFires = (fires) => {
@@ -50,6 +52,13 @@ class FireList extends React.Component {
             }
         });
     };
+
+    toggleSubscribe = (updatedFire) => {
+        let sub = !updatedFire.subscribed;
+        let fire = Object.assign(updatedFire, {subscribed: sub});
+        this.props.action.toggleSubscribe(JSON.stringify(fire))
+    };
+
     render() {
         let filteredAndSorted = this.sortFires(this.filterFires(this.props.fires));
         return (
@@ -58,7 +67,7 @@ class FireList extends React.Component {
                     <h2 className='text-center'>Active Fires</h2>
                     <FireListFilter filterList={this.props.action.filterFireList} filter={this.props.filter} />
                     <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} />
-                    { this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted}/> }
+                    { this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted} toggleSubscribe={this.toggleSubscribe}/> }
                 </div>
             </div>
         )
@@ -77,7 +86,8 @@ function mapStateToProps(state, prop) {
 
 function mapDispatchToProps(dispatch){
     return {
-        action: bindActionCreators(FireListActions, dispatch)
+        action: bindActionCreators(FireListActions, dispatch),
+        fireAction: bindActionCreators(FireActions, dispatch)
     }
 }
 
