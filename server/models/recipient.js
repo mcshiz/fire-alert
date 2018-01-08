@@ -35,8 +35,6 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Recipient.associate = function (models) {
-        // Using additional options like CASCADE etc for demonstration
-        // Can also simply do Task.belongsTo(models.User);
         Recipient.belongsTo(models.User, {
             onDelete: "CASCADE",
             foreignKey: {
