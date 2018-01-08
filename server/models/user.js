@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
 
     User.associate = function (models) {
         User.hasMany(models.Recipient);
+        User.hasMany(models.Fire);
     };
     return User;
 };
