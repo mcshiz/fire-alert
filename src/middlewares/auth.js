@@ -57,7 +57,7 @@ export default store => next => action => {
             })
         },
         error => {
-            if(error.status === 401) {
+            if(error.status !== 200) {
                 store.dispatch(logout())
             }
             next({
