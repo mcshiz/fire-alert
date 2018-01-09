@@ -1,18 +1,14 @@
-# Notes for future projects:
+# Fire Alert
 
-### Starting express-generator server with nodemon
-add this to the servers package json <br />
-`  "scripts": {
-     "start": "PORT=3001 nodemon ./bin/www"
-   }`
+I started this project to refresh some of my skills with creating full javascript 
+applications.
 
-### Setting env variables for use with process.env.<i>BLAH</i>
-Use the `dotenv` package <br />
-Create server root level .env file <br />
-`require('dotenv').config({path: '/custom/path/to/your/env/vars'})` <br />
-variables now accessible under process.env.VARIABLE  
+Here I am using Node/Express as the backend server where I've created a handful of API 
+endpoints for running the front-end.
 
-### Remove files / directories from GIT remote but keep local
-`git rm [-r] --cached [file | folder]`<br />
-`git commit -m "message"`<br />
-`git push origin <branch>`
+For Database management I chose to use Sequelize instead of Bookself to learn something new.
+Both are very similar ORMs.
+
+For the front end I chose to use React with Redux and React Router v4.
+I chose to use React-Router v4 but in hind-sight I see that there are still a handful of bugs
+or architecture hurdles that need to be overcome before choosing this for a production app.
