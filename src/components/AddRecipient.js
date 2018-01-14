@@ -8,16 +8,16 @@ class AddRecipient extends React.Component {
                 <li className='recipient-item'>
                     <div className="col-xs-12">
                         <div className="form-group">
-                            <input type="text" className="form-control" id="first_name" name="first_name"/>
+                            <input type="text" className="form-control" id="first_name" name="first_name" placeholder="First Name"/>
                         </div>
                         <div className="form-group">
-                            <input type="text" className="form-control" id="last_name" name="last_name"/>
+                            <input type="text" className="form-control" id="last_name" name="last_name" placeholder="Last Name"/>
                         </div>
                         <div className="form-group">
-                            <input type="text" className="form-control" id="phone_number" name="phone_number"/>
+                            <input type="text" className="form-control" id="phone_number" name="phone_number" placeholder="Phone Number"/>
                         </div>
                         <div className="form-group">
-                            <input type="email" className="form-control" id="email"  name="email" />
+                            <input type="email" className="form-control" id="email"  name="email" placeholder="Email address"/>
                         </div>
                         <div className="form-group">
                             <select name="status" id="status" className="form-control">
@@ -38,5 +38,5 @@ class AddRecipient extends React.Component {
 }
 AddRecipient.propTypes = {
     addRecipient: PropTypes.func.isRequired
-}
+};
 export default AddRecipient
