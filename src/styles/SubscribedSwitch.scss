@@ -60,6 +60,7 @@ input:checked + .slider:before {
   @media (max-width: 767px) {
     &.text-right { text-align:left }
   }
+  margin-right: 10px;
 }
 .subscribed-switch-label {
   height: 26px;

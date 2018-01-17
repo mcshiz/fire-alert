@@ -15,12 +15,14 @@ class FireListFilter extends React.Component {
     render() {
 
         return (
-            <div className="col-xs-12">
-                <form action="">
-                    <input type="text" className="form-control" placeholder="Filter Fires By Name, Zip Code or State"
-                           onChange={(e)=>{this.onChangeFilter(e.target.value)}}
-                           value={this.props.filter}/>
-                </form>
+            <div className="row">
+                <div className="col-xs-12 filter-text-container">
+                    <form action="">
+                        <input type="text" className="form-control" placeholder="Filter Fires By Name, Zip Code or State"
+                               onChange={(e)=>{this.onChangeFilter(e.target.value)}}
+                               value={this.props.filter}/>
+                    </form>
+                </div>
             </div>
         )
     }

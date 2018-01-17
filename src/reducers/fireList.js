@@ -4,6 +4,7 @@ export default (state = {
     sortBy: "lastUpdated",
     sortOrder: "Desc",
     filter: '',
+    showUnsubscribed: false
 }, payload) =>  {
     switch (payload.type) {
         case 'LOAD_ACTIVE_FIRES_REQUEST':
@@ -45,6 +46,10 @@ export default (state = {
             return Object.assign({}, state, {
                 isFetching: false,
                 error: payload.error
+            });
+        case 'HIDE_SHOW_UNSUBSCRIBED':
+            return Object.assign({}, state, {
+                showUnsubscribed: payload.visible
             });
 
         default:

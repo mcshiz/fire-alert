@@ -34,6 +34,12 @@ export const sortByFireList = (property) => {
     };
 };
 
+export const hideShowUnsubscribed = (value) => {
+    return {
+        type: "HIDE_SHOW_UNSUBSCRIBED",
+        visible: value
+    }
+};
 
 export const toggleSubscribe = (fire) => {
     return {

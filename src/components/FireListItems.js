@@ -14,6 +14,9 @@ class ListItems extends React.Component {
     createListItems = (fire, idx) => {
         let timeStamp = ParseISODate(fire.scrape_date);
         let link = '/fire-details/'+fire.id;
+        if(!this.props.showUnsubscribed && !fire.subscribed) {
+            return;
+        }
         return (
             <li className="list-group-item col-xs-12" key={idx}>
                 <div className="header">
@@ -66,9 +69,11 @@ class ListItems extends React.Component {
         }
 
         return (
-            <ul className="list-group col-xs-12 fire-list-ul">
-                {listItems}
-            </ul>
+            <div className="row">
+                <ul className="list-group col-xs-12 fire-list-ul">
+                    {listItems}
+                </ul>
+            </div>
         )
     }
 }

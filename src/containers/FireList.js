@@ -1,9 +1,8 @@
 import React from 'react';
-import '../styles/FireList.css'
+import '../styles/FireList.css';
 import FireListItems from '../components/FireListItems.js';
-import FireListFilter from '../components/FireListFilter.js'
-import FireListSort from '../components/FireListSort'
-
+import FireListFilter from '../components/FireListFilter.js';
+import FireListSort from '../components/FireListSort';
 import LoadingSpinner from "../components/LoadingSpinner";
 import * as FireListActions from "../actions/fireList";
 import * as FireActions from "../actions/fire";
@@ -17,6 +16,7 @@ class FireList extends React.Component {
         this.filterFires = this.filterFires.bind(this);
         this.sortFires = this.sortFires.bind(this);
         this.toggleSubscribe = this.toggleSubscribe.bind(this);
+        this.toggleShowUnsubscribed = this.toggleShowUnsubscribed.bind(this);
     }
 
     filterFires = (fires) => {
@@ -58,6 +58,9 @@ class FireList extends React.Component {
         let fire = Object.assign(updatedFire, {subscribed: sub});
         this.props.action.toggleSubscribe(JSON.stringify(fire))
     };
+    toggleShowUnsubscribed = () => {
+        this.props.action.hideShowUnsubscribed(!this.props.showUnsubscribed)
+    };
 
     render() {
         let filteredAndSorted = this.sortFires(this.filterFires(this.props.fires));
@@ -65,9 +68,10 @@ class FireList extends React.Component {
             <div className="row">
                 <div className="col-xs-12 fireListColumn">
                     <h2 className='text-center'>Active Fires</h2>
+
+                    <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} toggleShowUnsubscribed={this.toggleShowUnsubscribed}/>
                     <FireListFilter filterList={this.props.action.filterFireList} filter={this.props.filter} />
-                    <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} />
-                    { this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted} toggleSubscribe={this.toggleSubscribe}/> }
+                    { this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted} toggleSubscribe={this.toggleSubscribe} {...this.props}/> }
                 </div>
             </div>
         )
@@ -80,7 +84,8 @@ function mapStateToProps(state, prop) {
         sortBy: state.fireList.sortBy,
         sortOrder: state.fireList.sortOrder,
         fires: state.fireList.activeFires,
-        loading: state.fireList.loading
+        loading: state.fireList.loading,
+        showUnsubscribed: state.fireList.showUnsubscribed
     }
 }
 
