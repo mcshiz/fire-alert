@@ -41,7 +41,7 @@ class DashboardMap extends React.Component {
         let markers = this.props.fires.map(this.renderFireMarkers);
 
         return (
-            <div className="row">
+            <div className="row" id="map">
                 <div className="col-xs-12">
                     <Map center={position} zoom={this.props.options.zoom} scrollWheelZoom={this.props.options.scrollEnabled}>
                         <TileLayer

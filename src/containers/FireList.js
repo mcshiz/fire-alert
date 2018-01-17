@@ -68,7 +68,7 @@ class FireList extends React.Component {
             <div className="row">
                 <div className="col-xs-12 fireListColumn">
                     <h2 className='text-center'>Active Fires</h2>
-
+                    <h4 className="text-center"><a className="text-center" href="#map">View Map</a></h4>
                     <FireListSort changeSortBy={this.props.action.sortByFireList} changeSortOrder={this.props.action.sortOrderFireList} toggleShowUnsubscribed={this.toggleShowUnsubscribed}/>
                     <FireListFilter filterList={this.props.action.filterFireList} filter={this.props.filter} />
                     { this.props.loading ? <LoadingSpinner/> : <FireListItems fires={filteredAndSorted} toggleSubscribe={this.toggleSubscribe} {...this.props}/> }
