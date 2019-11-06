@@ -21,7 +21,7 @@
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0",
     "pg": "^7.4.0",
-    "sequelize": "^4.28.6",
+    "sequelize": "^5.15.1",
     "sequelize-cli": "^3.2.0",
     "serve-favicon": "~2.4.5",
     "twit": "^2.2.9"
